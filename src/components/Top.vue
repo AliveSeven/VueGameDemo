@@ -121,10 +121,8 @@ function throttle(){
         // 每次触发事件时，如果当前有等待执行的函数，则直接return
         return ;
     }else{
-        setTimeout(() => {
-            raffle()
-            timer.value = false
-        }, 5000);
+        raffle()
+        timer.value = false
     }
 }
 
