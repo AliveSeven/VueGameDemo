@@ -47,7 +47,7 @@
                             <div class="raffle" @click="throttle">开始抽奖</div>
                             <div class="coin">
                                 <img src="@/assets/icon/coin.png" alt="">
-                                <span>×10</span>
+                                <span>×{{ state.custCoin }}</span>
                             </div>
                         </div>
                         <img src="@/assets/icon/o-btn.png" class="o-btn">
@@ -134,6 +134,8 @@ function raffle(){
         setTimeout(() => {
             state.changeMao()
             state.changePop()
+            coin.value = coin.value - state.custCoin
+            state.addCustCoin()
             resolve('')
         }, 300);
     })

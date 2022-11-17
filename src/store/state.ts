@@ -13,7 +13,9 @@ export const useState = defineStore('main',{
         // 猫头激活
         lotAct : false,
         // 改变气泡
-        popAct : false
+        popAct : false,
+        // 抽奖金币
+        custCoin : 10
     }
   },
   
@@ -43,6 +45,9 @@ export const useState = defineStore('main',{
     // 改变猫头
     changePop(){
         this.popAct = !this.popAct
+    },
+    addCustCoin(){
+        this.custCoin = this.custCoin + 10
     }
   }
 
