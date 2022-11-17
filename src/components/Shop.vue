@@ -3,15 +3,19 @@
         <div class="bg">
             <!-- <img src="@/assets/icon/p3.png" alt=""> -->
         </div>
-        <div class="i-bg">
+        <!-- <div class="i-bg">
             <img src="@/assets/icon/p3.png" alt="">
-        </div>
+        </div> -->
         <div class="items">
             <ShopItem></ShopItem>
             <ShopItem></ShopItem>
             <ShopItem></ShopItem>
             <ShopItem></ShopItem>
             <ShopItem></ShopItem>
+        </div>
+
+        <div class="bottom">
+            <img src="@/assets/icon/bottombg.png" alt="">
         </div>
     </div>
 </template>
@@ -27,25 +31,30 @@ import ShopItem from './ShopItem.vue';
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 50px;
     background: rgb(43, 31, 78);
+    background-image: url('@/assets/icon/p3.png');
+    background-size: 95% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    // overflow: hidden;
 
     .bg{
         position: relative;
     }
 
-    .i-bg{
-        position: absolute;
-        width: 95%;
-        transition: .3s;
+    // .i-bg{
+    //     position: absolute;
+    //     width: 95%;
+    //     transition: .3s;
+    //     top: 0;
 
-        @media screen and(max-width: 650px) {
-            transform: translate(0,-4%);
-        }
-        img{
-            width: 100%;
-        }
-    }
+    //     @media screen and(max-width: 650px) {
+    //         transform: translate(0,-4%);
+    //     }
+    //     img{
+    //         width: 100%;
+    //     }
+    // }
 
     .items{
         display: flex;
@@ -53,9 +62,19 @@ import ShopItem from './ShopItem.vue';
         align-items: center;
         justify-content: center;
         transition: .3s;
+        margin-top: 50px;
         
-        @media screen and (max-width: 350px){
-            transform: translate(0,-10%);
+    }
+
+    .bottom{
+        position: absolute;
+        background-color: rgb(43, 31, 78);
+        bottom: 0;
+        width: 100%;
+        z-index: -1;
+
+        img{
+            width: 100%;
         }
     }
 

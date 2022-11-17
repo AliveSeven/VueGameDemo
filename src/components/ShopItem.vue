@@ -60,7 +60,7 @@
 
     .item-title{
         position: absolute;
-        top: 2%;
+        top: 5%;
         left: 10%;
         font-size: 1.2rem;
         font-weight: bold;
@@ -70,11 +70,12 @@
             top: 4%;
             font-size: 11px;
         }
+        
     }
 
     .limit {
         position: absolute;
-        top: 5%;
+        top: 7%;
         right: 15%;
         font-size: 1.4rem;
         font-weight: bold;
@@ -91,7 +92,7 @@
         display: flex;
         align-items: center;
         top: 40%;
-        left: 5%;
+        left: 10%;
         z-index: 200;
      
         @media screen and (max-width : 600px){
@@ -151,6 +152,7 @@
     }
 
     .btn{
+        cursor: pointer;
         position: absolute;
         top: 45%;
         right: 10%;

@@ -88,12 +88,16 @@
     justify-content: center;
     align-items: center;
     background: rgb(43, 31, 78);
-    padding-bottom: 50px;
+    padding-bottom: 150px;
+    transition: .3s;
+
+    @media screen  and (max-width : 500px){
+        padding-bottom: 50px;
+    }
 
     .bg{
         position: absolute;
         width: 95%;
-        transform: translate(0 , -35%);
 
         img{
             width: 100%;
@@ -104,7 +108,6 @@
     .box{
         z-index: 300;
         margin-top: 30px;
-        transform: translate(0 , -40%);
 
         @media screen and(max-width : 500px){
             margin-top: 10px;
@@ -116,6 +119,7 @@
             align-items: center;
 
             .common-box{
+                cursor: pointer;
                 background: url('@/assets/icon/s1.png') no-repeat;
                 background-size: cover;
                 width: 140px;
@@ -216,6 +220,7 @@
             align-items: center;
 
             .good-box{
+                cursor: pointer;
                 background: url('@/assets/icon/s1.png') no-repeat;
                 background-size: cover;
                 width: 170px;
@@ -314,6 +319,7 @@
             }
             
             .best-box{
+                cursor: pointer;
                 background: url('@/assets/icon/s3.png') no-repeat;
                 background-size: cover;
                 width: 250px;

@@ -120,7 +120,7 @@ const coin = ref(1000)
             display: flex;
             justify-content: center;
             width: 100%;
-            padding-top: 56px;
+            transform: translateY(70px);
 
             img{
                 width: 90%;
@@ -137,6 +137,8 @@ const coin = ref(1000)
                 flex-direction: column;
                 align-items: center;
                 width: 100%;
+                transform: translate(0, 15%);
+                z-index: 100;
 
                 img{
                     width: 80%;
@@ -149,6 +151,7 @@ const coin = ref(1000)
                         left: 50%;
                         transform: translate(-50%,-50%);
                         z-index: 500;
+                        cursor: pointer;
 
                         .o-btn{
                             width: 300px;
@@ -220,7 +223,6 @@ const coin = ref(1000)
             .part1{
                     position: relative;
                     width: 100%;
-                    transform: translate(0, -12%);
 
                     img{
                         width: 100%;
@@ -228,6 +230,7 @@ const coin = ref(1000)
 
                     .btn-left{
                         position: absolute;
+                        cursor: pointer;
                         top: 12%;
                         left: 15%;
                         transform: translate(-50%,-50%);
@@ -257,6 +260,7 @@ const coin = ref(1000)
 
                     .btn-right{
                         position: absolute;
+                        cursor: pointer;
                         top: 12%;
                         right: 15%;
                         transform: translate(50%,-50%);
@@ -314,7 +318,7 @@ const coin = ref(1000)
                     .detail{
                         margin: 0 24px;
                         position: absolute;
-                        top: 35%;
+                        top: 38%;
                         z-index: 500;
     
                         @media screen and (max-width : 600px){
@@ -497,7 +501,7 @@ const coin = ref(1000)
 
                     .daliy{
                         position: absolute;
-                        top: 55%;
+                        top: 60%;
                         width: 100%;
                     }
                 }
