@@ -1,0 +1,44 @@
+body,
+html {
+  height: 100%; /* 高度设定 */
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  overflow: hidden;
+  font-size: 16px;
+  /* CSS3 抗锯齿形 让文字显示的更加清晰 */
+  -webkit-font-smoothing: antialiased;
+  /* font-family: ZhuZiAYuanJWD; */
+  line-height: 1.5;
+  /* font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,\5fae\8f6f\96c5\9ed1,Arial,sans-serif; */
+}
+
+@media screen and (max-width : 700px){
+  html{
+      font-size: 15px;
+  }
+}
+
+@media screen and (max-width : 650px){
+  html{
+      font-size: 14px;
+  }
+}
+
+@media screen and (max-width : 600px){
+  html{
+      font-size: 13px;
+  }
+}
+
+@media screen and (max-width : 550px){
+  html{
+      font-size: 12px;
+  }
+}
+
+@media screen and (max-width : 500px){
+  html{
+      font-size: 11px;
+  }
+}
