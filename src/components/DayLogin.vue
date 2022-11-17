@@ -16,14 +16,27 @@
             </div>
         </div>
 
-        <div class="r-btn">
-            <span>领取</span>
+        <div class="r-btn" @click="getLoginGift()">
+            <span>{{rbtn}}</span>
             <img src="@/assets/icon/r-btn.png" alt="">
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue'
+import { useState } from '@/store/state';
+const state = useState()
+const rbtn = ref('领取')
+
+function getLoginGift(){
+    if(rbtn.value === '领取'){
+        state.changeShowMask('每日登录，恭喜获得','coin')
+        rbtn.value = '已领取'
+    }else {
+        state.changeShowMask('已经领取过了','coin')
+    }
+}
 
 </script>
 

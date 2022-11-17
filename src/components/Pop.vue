@@ -1,5 +1,5 @@
 <template>
-    <div class="pop" :class="ImgSize" >
+    <div class="pop" id="pop" :class="ImgSize ,{  popB : state.popAct == true}" >
         <img :src="`/src/assets/icon/${ImgType}`" alt="">
         <div class="content">
             <img :src="`/src/assets/icon/${content}`" alt="">
@@ -9,6 +9,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { useState } from '@/store/state';
 // content必须放在icon目录下，其他图片也是
 const props = defineProps<{
     size? : string
@@ -16,12 +17,21 @@ const props = defineProps<{
     content? : string
     width? : string
     height? : string
+    popAnime? : string
 }>()
 
+const state = useState()
 // 气泡大小，分为大、中、小
 const ImgSize = ref()
 // 气泡颜色类型，分为红、蓝、黄、白
 const ImgType = ref()
+// 气泡动画
+if(props.popAnime){
+    let style = document.createElement(`style`)
+    let text = document.createTextNode(`#pop{ animation: ${props.popAnime} 2s ease-in 0s 1 normal; }`)
+    style.appendChild(text)
+    document.body.appendChild(style)
+}
 
 if(props.size ==='large'){
     ImgSize.value = 'largeSize'
@@ -147,6 +157,30 @@ if(props.type === 'type1'){
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: animation 2s;
+
+    :active{
+        animation: moveB 1s ease-in 0s 2 alternate;
+    }
+
+    .content{
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        bottom: 22%;
+        left: 30%;
+    }
+}
+
+.popB{
+    // width: 120px;
+    // height: 120px;
+    z-index: 999;
+    position: absolute;
+    animation: moveB 2s ease 0s 2 alternate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .content{
         position: absolute;
@@ -166,5 +200,17 @@ if(props.type === 'type1'){
         transform: translate(0 , 20px);
     }
 }
+
+@keyframes moveB{
+    0% {
+        transform: translate(0 , 0);
+    }
+    100%{
+        top: 30%;
+        left: 40%;
+        opacity: 0;
+    }
+}
+
 
 </style>

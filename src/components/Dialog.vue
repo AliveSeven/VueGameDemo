@@ -2,32 +2,34 @@
     <div class="dialog">
         <div class="msg">
             <div class="content">
-                获得奖励
+                {{ msg }}
             </div>
             <div class="gift">
-                <img src="@/assets/icon/theone.png" alt="">
+                <img :src="`/src/assets/icon/${gift}.png`" alt="">
             </div>
             <div class="gift-des">
-                阿拉丁神灯，能够实现一个愿望
+                获得奖励
             </div>
 
             <div class="c-btn">
-                <button>确认</button>
+                <button @click="state.changeShowMask()">确认</button>
             </div>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
+import { useState } from '@/store/state';
+const state = useState()
+
 const props = defineProps<{
     msg? : string
+    gift? : string
 }>()
 </script>
 
 <style lang="less">
 .dialog{
-    width: 100%;
-    height: 100%;
 
     .msg{
         position: absolute;
@@ -46,7 +48,7 @@ const props = defineProps<{
         }
 
         .content {
-            margin-top: 20px;
+            margin-top: 10px;
             text-align: center;
             font-size: 2rem;
             font-weight: bold;
@@ -54,7 +56,7 @@ const props = defineProps<{
 
         .gift{
             width: 100%;
-            height: 30%;
+            height: 40%;
             display: flex;
             justify-content: center;
             padding-top: 10px;

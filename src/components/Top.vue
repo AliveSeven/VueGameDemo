@@ -14,24 +14,37 @@
 
             <div class="lot">
                 <div class="lottery">
-                    <img src="@/assets/icon/lottery-normal.png" alt="">
+                    <img src="@/assets/icon/lottery-normal.png" alt="" v-show="!state.lotAct">
+                    <img src="@/assets/icon/lottery-acitive.png" alt="" srcset="" v-show="state.lotAct">
+                    <div v-show="showBall">
+                        <Ball size="large" anime="moveC" type="type1" style="top: 35%; left: 35%;"></Ball>
+                        <Ball size="large" anime="moveD" type="type2" style="top: 40%; left: 20%;"></Ball>
+                        <Ball size="large" anime="moveD" type="type3" style="top: 40%; right: 10%;"></Ball>
+                        <Ball size="large" anime="moveC" type="type1" style="top: 20%; right: 30%;"></Ball>
+                        <Ball size="large" anime="moveE" type="type2" style="top: 50%; right: 20%;"></Ball>
+                        <Ball size="large" anime="moveD" type="type4" style="top: 20%; right: 20%;"></Ball>
+                        <Ball size="large" anime="moveC" type="type2" style="top: 20%; right: 40%;"></Ball>
+                        <Ball size="large" anime="moveC" type="type3" style="top: 50%; left: 30%;"></Ball>
+                        <Ball size="large" anime="moveE" type="type2" style="top: 25%; left: 35%;"></Ball>
+                        <Ball size="large" anime="moveC" type="type4" style="top: 30%; left: 15%;"></Ball>
+                    </div>
 
                     <Pop size="mid" type="type3" content="bg2-8-1.png" style="top: -10%; left: 30%;"></Pop>
-                    <Pop size="mid" type="type4" content="box-chose21.png" style="top: 10; right: 20%;"></Pop>
-                    <Pop size="mid" type="type3" content="bg9-5.png" style="top: 0; right: 0;"></Pop>
+                    <Pop size="mid" type="type4" content="box-chose21.png" style="top: 0; left: 50%;"></Pop>
+                    <Pop size="mid" type="type3" content="bg9-5.png" style="top: 0; left: 70%;"></Pop>
                     <Pop size="mid" type="type2" content="icon-gift.png" style="top: 10%; left: 10%;"></Pop>
-                    <Pop size="large" type="type1" content="bg2-11-2.png" style="top: 20%;"></Pop>
+                    <Pop size="large" type="type1" content="bg2-11-2.png" style="top: 20%; left:31%"></Pop>
                     <Pop size="small" type="type3" content="bg2-9-1.png" style="top: 30%; left: 20%;"></Pop>
                     <Pop size="small" type="type1" content="bg2-9-5.png" style="top: 40%; left: 5%;"></Pop>
                     <Pop size="mid" type="type3" content="bg2-8-3.png" style="top: 50%; left: 25%;"></Pop>
-                    <Pop size="mid" type="type2" content="bg10-2.png" style="top: 50%; right: 30%;"></Pop>
-                    <Pop size="small" type="type3" content="bg2-11-1.png" style="top: 50%; right: 15%;"></Pop>
-                    <Pop size="small" type="type3" content="box-chose21.png" style="top: 40%; right: 0;"></Pop>
-                    <Pop size="mid" type="type4" content="bg12-5.png" style="top: 25%; right: 15%;"></Pop>
+                    <Pop size="mid" type="type2" content="bg10-2.png" style="top: 55%; left: 45%;"></Pop>
+                    <Pop size="small" type="type3" content="bg2-11-1.png" style="top: 50%; left: 65%;"></Pop>
+                    <Pop size="small" type="type3" content="bg7-3.png" style="top: 40%; left: 75%;"></Pop>
+                    <Pop size="mid" type="type4" content="bg12-5.png" style="top: 25%; left: 60%;"></Pop>
 
                     <div class="btn">
                         <div class="des">
-                            <div class="raffle">开始抽奖</div>
+                            <div class="raffle" @click="throttle">开始抽奖</div>
                             <div class="coin">
                                 <img src="@/assets/icon/coin.png" alt="">
                                 <span>×10</span>
@@ -88,12 +101,55 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref , onUnmounted } from 'vue'
+import { useState } from '@/store/state';
 import Pop from '@/components/Pop.vue'
 import DayLogin from '@/components/DayLogin.vue'
+import Ball from '@/components/Ball.vue';
 
-
+const state = useState()
+// 硬币
 const coin = ref(1000)
+// 展示抽奖球球
+const showBall = ref(false)
+// 函数是否在运行
+const timer = ref(false)
+
+// 按钮加入节流
+function throttle(){
+    if(!timer){
+        // 每次触发事件时，如果当前有等待执行的函数，则直接return
+        return ;
+    }else{
+        setTimeout(() => {
+            raffle()
+            timer.value = false
+        }, 5000);
+    }
+}
+
+function raffle(){
+    timer.value = true
+    const promise = new Promise((resolve,reject) =>{
+        setTimeout(() => {
+            state.changeMao()
+            state.changePop()
+            resolve('')
+        }, 300);
+    })
+
+    promise.then((res) =>{
+        setTimeout(() => {
+            showBall.value = !showBall.value
+        }, 1000);
+        setTimeout(() => {
+            state.changePop()
+            showBall.value = !showBall.value
+            state.changeShowMask('恭喜获得','bg2-9-5')
+        }, 4000);
+    })
+    
+}
 
 </script>
 
@@ -510,5 +566,6 @@ const coin = ref(1000)
     }
 
 }
+
 
 </style>

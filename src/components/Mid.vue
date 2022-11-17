@@ -5,71 +5,35 @@
         </div>
         <div class="box">
             <div class="box-one">
-                <div class="common-box">
+                <div class="common-box" v-for="(item, index) in commonBoxMsg" :key="index" @click="getCommonGift(index)"> 
                     <div class="day">第一天</div>
                     <div class="gift">
                         <img src="@/assets/icon/icon-gift.png" alt="">
                     </div>
                     <div class="register">
-                        签到领取
+                        {{ item }}
                     </div>
                 </div>  
-                <div class="common-box">
-                    <div class="day">第二天</div>
-                    <div class="gift">
-                        <img src="@/assets/icon/icon-gift.png" alt="">
-                    </div>
-                    <div class="register">
-                        签到领取
-                    </div>
-                </div>  
-                <div class="common-box">
-                    <div class="day">第三天</div>
-                    <div class="gift">
-                        <img src="@/assets/icon/icon-gift.png" alt="">
-                    </div>
-                    <div class="register">
-                        签到领取
-                    </div>
-                </div>  
-                <div class="common-box">
-                    <div class="day">第四天</div>
-                    <div class="gift">
-                        <img src="@/assets/icon/icon-gift.png" alt="">
-                    </div>
-                    <div class="register">
-                        签到领取
-                    </div>
-                </div>  
-                
             </div>
 
             <div class="box-two">
-                <div class="good-box">
-                    <div class="day">第五天</div>
+                <div class="good-box" v-for="(item, index) in boxMsg" :key="index" @click="getBoxGift(index)">
+                    <div class="day">第一天</div>
                     <div class="gift">
                         <img src="@/assets/icon/icon-gift.png" alt="">
                     </div>
                     <div class="register">
-                        签到领取
+                        {{ item }}
                     </div>
                 </div>  
-                <div class="good-box">
-                    <div class="day">第六天</div>
-                    <div class="gift">
-                        <img src="@/assets/icon/icon-gift.png" alt="">
-                    </div>
-                    <div class="register">
-                        签到领取
-                    </div>
-                </div>  
-                <div class="best-box">
+
+                <div class="best-box" @click="getBestGift()">
                     <div class="gift">
                         <div class="day">第七天</div>
                         <img src="@/assets/icon/icon-gift.png" alt="" class="best-img">
                     </div>
                     <div class="register">
-                        签到领取
+                        {{ bestBoxMsg }}
                     </div> 
                 </div>
             </div>
@@ -78,6 +42,58 @@
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue'
+import { useState } from '@/store/state'; 
+
+const state = useState()
+
+// 普通箱子
+const commonBoxMsg : any = ref([])
+// 高级箱子
+const boxMsg : any = ref([])
+// 豪华箱子
+const bestBoxMsg : any = ref('签到领取')
+
+// 普通的箱子有四个
+for(var i = 0; i < 4 ; ++i){
+    const msg = '签到领取'
+    commonBoxMsg.value.push(msg)
+}
+// 高级的箱子有两个
+for(var i = 0; i < 2 ; ++i){
+    const msg = '签到领取'
+    boxMsg.value.push(msg)
+}
+
+// 点击普通箱子
+function getCommonGift(i : number){
+    if(commonBoxMsg.value[i] == '签到领取'){
+        state.changeShowMask('登录成功，恭喜获得', 'icon-gift')
+        commonBoxMsg.value[i] = '已领取'
+    }else {
+        state.changeShowMask('已经领取过了','icon-gift')
+    }
+}
+
+// 点击高级箱子
+function getBoxGift(i : number){
+    if(boxMsg.value[i] == '签到领取'){
+        state.changeShowMask('登录成功，恭喜获得', 'icon-gift')
+        boxMsg.value[i] = '已领取'
+    }else {
+        state.changeShowMask('已经领取过了','icon-gift')
+    }
+}
+
+// 点击豪华箱子
+function getBestGift(){
+    if(bestBoxMsg.value == '签到领取'){
+        state.changeShowMask('登录成功，恭喜获得', 'icon-gift')
+        bestBoxMsg.value = '已领取'
+    }else {
+        state.changeShowMask('已经领取过了','icon-gift')
+    } 
+}
 
 </script>
 

@@ -1,26 +1,25 @@
 <template>
     <div class="main">
         <div class="game">
-            <div class="mask" v-show="showMask"></div>
+            <div class="mask" v-show="state.showMask" @click="state.changeShowMask()"></div>
             <Top></Top>
             <Mid></Mid>
             <Shop></Shop>
             <Bottom></Bottom>
-            <Dialog></Dialog>
+            <Dialog :msg="state.dialogMsg" :gift="state.giftMsg" v-show="state.showMask"></Dialog>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { useState } from '@/store/state'
 import Top from '@/components/Top.vue'
-import Mid from './components/Mid.vue';
-import Shop from './components/Shop.vue';
+import Mid from '@/components/Mid.vue';
+import Shop from '@/components/Shop.vue';
 import Bottom from '@/components/Bottom.vue'
-import Dialog from './components/Dialog.vue';
+import Dialog from '@/components/Dialog.vue';
 
-const showMask = ref(true)
-
+const state = useState()
 
 </script>
 
