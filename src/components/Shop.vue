@@ -34,7 +34,12 @@ import ShopItem from './ShopItem.vue';
     background-repeat: no-repeat;
     background-position: center;
     transition: .3s;
+    height: 130%;
     // overflow: hidden;
+
+    @media screen and(max-width: 600px){
+        height: auto;
+    }
 
     .bg{
         position: relative;
