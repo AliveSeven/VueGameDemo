@@ -1,5 +1,5 @@
 <template>
-    <div class="ball" :class="ballSize , { moveC : anime == 'moveC' } , { moveD : anime == 'moveD' } , { moveE : anime == 'moveE' }">
+    <div class="ball" :class="ballSize , { moveC : anime == 'moveC' } , { moveD : anime == 'moveD' } , { moveE : anime == 'moveE' } , { moveF : anime == 'moveF' }">
         <div class="ball-1">
             <img :src="getImageUrl(ballType)" alt="">
         </div>
@@ -107,6 +107,37 @@ function getImageUrl(name : any) {
     }
 }
 
+.smallSize { 
+    width: 120px;
+    height: 120px;
+
+    @media screen and (max-width : 700px){
+        width: 100px;
+        height: 100px;
+    }
+
+    @media screen and (max-width : 650px){
+        width: 80px;
+        height: 80px;
+    }
+
+    @media screen and (max-width : 600px){
+        width: 60px;
+        height: 60px;
+    }
+
+    @media screen and (max-width : 550px){
+        width: 50px;
+        height: 50px;
+    }
+
+    @media screen and (max-width : 500px){
+        width: 40px;
+        height: 40px;
+    }
+    
+}
+
 .ball{
     z-index: 50;
     position: absolute;
@@ -124,6 +155,9 @@ function getImageUrl(name : any) {
 }
 .moveE{
     animation: moveE .2s ease-in 0s infinite alternate;
+}
+.moveF{
+    animation: moveF 1s ease-in 0s 1 normal;
 }
 
 /* 规定动画move是由上到下 */
@@ -151,6 +185,17 @@ function getImageUrl(name : any) {
     }
     100%{
         transform: translate(0 , -40px);
+    }
+}
+
+@keyframes moveF{
+    0% {
+        transform: translate(-50% , 0);
+        opacity: 0;
+    }
+    100%  {
+        transform: translate(-50% , 50%);
+        opacity: 1;
     }
 }
 </style>

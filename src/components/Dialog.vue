@@ -12,7 +12,7 @@
             </div>
 
             <div class="c-btn">
-                <button @click="state.changeShowMask()">确认</button>
+                <button @click="state.changeShowMask(),state.confirmDialog()">确认</button>
             </div>
         </div>
     </div>
@@ -35,39 +35,46 @@ function getImageUrl(name : any) {
 
 <style lang="less">
 .dialog{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    height: 270px;
+    border-radius: 10px 10px 30px 30px;
+    background-color: rgb(251, 251, 251);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width : 500px){
+        width: 350px;
+        height: 220px;
+    }
 
     .msg{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        width: 400px;
-        height: 250px;
-        border-radius: 10px 10px 50px 50px;
-        background-color: rgb(251, 251, 251);
-        z-index: 999;
-
-        @media screen and (max-width : 500px){
-            width: 350px;
-            height: 250px;
-        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         .content {
-            margin-top: 10px;
             text-align: center;
             font-size: 2rem;
             font-weight: bold;
         }
 
         .gift{
-            width: 100%;
+            width: 80px;
             height: 40%;
             display: flex;
             justify-content: center;
+            align-items: center;
             padding-top: 10px;
 
             img{
-                width: 30%;
+                width: 100%;
                 height: 100%;
             }
         }
@@ -76,7 +83,7 @@ function getImageUrl(name : any) {
             width: 100%;
             text-align: center;
             font-size: 1rem;
-            margin-top: 5px;
+            margin: 5px 0;
             color: gray;
         }
 

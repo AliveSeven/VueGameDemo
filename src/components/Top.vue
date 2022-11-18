@@ -29,22 +29,23 @@
                         <Ball size="large" anime="moveC" type="type4" style="top: 30%; left: 15%;"></Ball>
                     </div>
 
-                    <Pop size="mid" type="type3" content="bg2-8-1" style="top: -10%; left: 30%;"></Pop>
-                    <Pop size="mid" type="type4" content="box-chose21" style="top: 0; left: 50%;"></Pop>
-                    <Pop size="mid" type="type3" content="bg9-5" style="top: 0; left: 70%;"></Pop>
-                    <Pop size="mid" type="type2" content="icon-gift" style="top: 10%; left: 10%;"></Pop>
-                    <Pop size="large" type="type1" content="bg2-11-2" style="top: 20%; left:31%"></Pop>
-                    <Pop size="small" type="type3" content="bg2-9-1" style="top: 30%; left: 20%;"></Pop>
-                    <Pop size="small" type="type1" content="bg2-9-5" style="top: 40%; left: 5%;"></Pop>
-                    <Pop size="mid" type="type3" content="bg2-8-3" style="top: 50%; left: 25%;"></Pop>
-                    <Pop size="mid" type="type2" content="bg10-2" style="top: 55%; left: 45%;"></Pop>
-                    <Pop size="small" type="type3" content="bg2-11-1" style="top: 50%; left: 65%;"></Pop>
-                    <Pop size="small" type="type3" content="bg7-3" style="top: 40%; left: 75%;"></Pop>
-                    <Pop size="mid" type="type4" content="bg12-5" style="top: 25%; left: 60%;"></Pop>
+                    <Pop :showType="!state.popAct"  size="mid" type="type3" content="bg2-8-1" style="top: -10%; left: 30%;"></Pop>
+                    <Pop :showType="!state.popAct"  size="mid" type="type4" content="box-chose21" style="top: 0; left: 50%;"></Pop>
+                    <Pop :showType="!state.popAct"  size="mid" type="type3" content="bg9-5" style="top: 0; left: 70%;"></Pop>
+                    <Pop :showType="!state.popAct"  size="mid" type="type2" content="icon-gift" style="top: 10%; left: 10%;"></Pop>
+                    <Pop :showType="true" size="large" type="type1" content="bg2-11-2" style="top: 20%; left:31%"></Pop>
+                    <Pop :showType="!state.popAct"  size="small" type="type3" content="bg2-9-1" style="top: 30%; left: 20%;"></Pop>
+                    <Pop :showType="!state.popAct"  size="small" type="type1" content="bg2-9-5" style="top: 40%; left: 5%;"></Pop>
+                    <Pop :showType="!state.popAct"  size="mid" type="type3" content="bg2-8-3" style="top: 50%; left: 25%;"></Pop>
+                    <Pop :showType="!state.popAct"  size="mid" type="type2" content="bg10-2" style="top: 55%; left: 45%;"></Pop>
+                    <Pop :showType="!state.popAct"  size="small" type="type3" content="bg2-11-1" style="top: 50%; left: 65%;"></Pop>
+                    <Pop :showType="!state.popAct"  size="small" type="type3" content="bg7-3" style="top: 40%; left: 75%;"></Pop>
+                    <Pop :showType="!state.popAct"  size="mid" type="type4" content="bg12-5" style="top: 25%; left: 60%;"></Pop>
 
-                    <div class="btn">
+                    <div class="btn" @click="raffle" v-throttle>
                         <div class="des">
-                            <div class="raffle" @click="throttle">开始抽奖</div>
+                            <!-- 使用自定义指令v-throttle实现节流， -->
+                            <div class="raffle">开始抽奖</div>
                             <div class="coin">
                                 <img src="@/assets/icon/coin.png" alt="">
                                 <span>×{{ state.custCoin }}</span>
@@ -86,6 +87,7 @@
 
                             <div class="exit">
                                 <img src="@/assets/icon/exit.png" alt="">
+                                <Ball v-show="state.custGift" size="small" anime="moveF" type="type1" style="top: 30%; left: 50%; transform: translate(-50%,0);"></Ball>
                             </div>
                         </div>
 
@@ -115,19 +117,10 @@ const showBall = ref(false)
 // 函数是否在运行
 const timer = ref(false)
 
-// 按钮加入节流
-function throttle(){
-    if(!timer){
-        // 每次触发事件时，如果当前有等待执行的函数，则直接return
-        return ;
-    }else{
-        raffle()
-        timer.value = false
-    }
-}
-
+// 开始抽奖出发的函数
 function raffle(){
     timer.value = true
+    console.log(111)
     const promise = new Promise((resolve,reject) =>{
         setTimeout(() => {
             state.changeMao()
@@ -143,7 +136,11 @@ function raffle(){
             showBall.value = !showBall.value
         }, 1000);
         setTimeout(() => {
+            state.changeCustGift()
+        }, 3000);
+        setTimeout(() => {
             state.changePop()
+            state.changeMao()
             showBall.value = !showBall.value
             state.changeShowMask('恭喜获得','bg2-9-5')
         }, 4000);

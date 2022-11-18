@@ -1,6 +1,6 @@
 <template>
     <div class="pop" id="pop" :class="ImgSize ,{  popB : state.popAct == true}" >
-        <img :src="getImageUrl(ImgType)" alt="">
+        <img :src="getImageUrl(ImgType)" alt="" v-show="showType">
         <div class="content">
             <img :src="getImageUrl(content)" alt="">
         </div>
@@ -17,7 +17,7 @@ const props = defineProps<{
     content? : string
     width? : string
     height? : string
-    popAnime? : string
+    showType? : boolean
 }>()
 
 const state = useState()
@@ -25,13 +25,6 @@ const state = useState()
 const ImgSize = ref()
 // 气泡颜色类型，分为红、蓝、黄、白
 const ImgType = ref()
-// 气泡动画
-if(props.popAnime){
-    let style = document.createElement(`style`)
-    let text = document.createTextNode(`#pop{ animation: ${props.popAnime} 2s ease-in 0s 1 normal; }`)
-    style.appendChild(text)
-    document.body.appendChild(style)
-}
 
 if(props.size ==='large'){
     ImgSize.value = 'largeSize'
@@ -209,8 +202,8 @@ function getImageUrl(name : any) {
         transform: translate(0 , 0);
     }
     100%{
-        top: 30%;
-        left: 40%;
+        top: 40%;
+        left: 35%;
         opacity: 0;
     }
 }

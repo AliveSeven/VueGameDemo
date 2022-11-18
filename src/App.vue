@@ -1,7 +1,7 @@
 <template>
     <div class="main">
         <div class="game">
-            <div class="mask" v-show="state.showMask" @click="state.changeShowMask()"></div>
+            <div class="mask" v-show="state.showMask" @click="state.changeShowMask(),state.confirmDialog()"></div>
             <Top></Top>
             <Mid></Mid>
             <Shop></Shop>

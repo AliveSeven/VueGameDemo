@@ -12,10 +12,12 @@ export const useState = defineStore('main',{
         giftMsg : 'coin',
         // 猫头激活
         lotAct : false,
-        // 改变气泡
+        // 改变气泡激活状态
         popAct : false,
         // 抽奖金币
-        custCoin : 10
+        custCoin : 10,
+        // 抽奖球显示
+        custGift : false
     }
   },
   
@@ -34,6 +36,10 @@ export const useState = defineStore('main',{
     changeDialog(msg : string){
         this.dialogMsg = msg
     },
+    // 弹出框确认
+    confirmDialog(){
+        this.custGift = false
+    },
     // 改变礼物
     changeDialogGift(gift : string){
         this.giftMsg = gift
@@ -48,6 +54,10 @@ export const useState = defineStore('main',{
     },
     addCustCoin(){
         this.custCoin = this.custCoin + 10
+    },
+    // 改变抽奖礼物状态
+    changeCustGift(){
+        this.custGift = !this.custGift
     }
   }
 
