@@ -1,45 +1,41 @@
-# aide
+# aidefanqie
 
-This template should help get you started developing with Vue 3 in Vite.
+## 在线预览
 
-## Recommended IDE Setup
+* demo已托管到github服务器，如果觉得本地启动麻烦，**可以直接点击链接进行预览**，不过基于github服务器在国外，可能会有点卡，或者是图片加载不出来之类的，这点待优化
+* https://aliveseven.github.io/VueGameDemo/dist/index.html
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## 笔试结果
 
-## Type Support for `.vue` Imports in TS
+* 基本实现了Web端UI布局，对不同的屏幕宽度作出相对应的调整，适配移动端。
+* **实现笔试要求的交互效果**
+* **实现笔试要求的动画效果**
+* 根据实际功能拆分了好几个组件
+* 这个小demo是用vite+vue3+pinia+ts实现，大概花费一天左右的时间
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+## 项目启动
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+* 解压项目到文件夹，到项目的目录下面执行下面的代码
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+### 先是执行下面这行代码
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 当基本的包安装完之后，运行下面这行代码
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### 项目打包用以下这个代码
 
 ```sh
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+### 通过vitest测试
 
 ```sh
 npm run test:unit

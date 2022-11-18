@@ -29,10 +29,14 @@ import { useState } from '@/store/state';
 const state = useState()
 const rbtn = ref('领取')
 
+// 登录领取函数
 function getLoginGift(){
     if(rbtn.value === '领取'){
+        // 显示遮罩层
         state.changeShowMask('每日登录，恭喜获得','coin','神灯币×1')
+        // 增加一个神灯币
         state.changeCoin(-1)
+        // 改为已领取
         rbtn.value = '已领取'
     }else {
         state.changeShowMask('已经领取过了','coin','神灯币×1')

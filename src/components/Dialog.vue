@@ -28,7 +28,6 @@ const props = defineProps<{
     rewardMsg? : string
 }>()
 
-
 function getImageUrl(name : any) {
     return new URL(`../assets/icon/${name}.png`, import.meta.url).href;
 }
