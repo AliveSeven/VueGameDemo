@@ -156,11 +156,6 @@ function getImageUrl(name : any) {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: animation 2s;
-
-    :active{
-        animation: moveB 1s ease-in 0s 2 alternate;
-    }
 
     .content{
         position: absolute;
