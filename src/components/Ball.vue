@@ -30,13 +30,13 @@ if(props.size ==='large'){
 
 // 气泡颜色类型，不同类型对应不同颜色
 if(props.type === 'type1'){
-    ballType.value = 'ball1.png'
+    ballType.value = 'ball1'
 }else if(props.type === 'type2'){
-    ballType.value = 'ball2.png'
+    ballType.value = 'ball2'
 }else if(props.type === 'type3'){
-    ballType.value = 'ball3.png'
+    ballType.value = 'ball3'
 }else{
-    ballType.value = 'ball4.png'
+    ballType.value = 'ball4'
 }
 
 function getImageUrl(name : any) {

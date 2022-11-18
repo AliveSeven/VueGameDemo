@@ -43,13 +43,13 @@ if(props.size ==='large'){
 
 // 气泡颜色类型，不同类型对应不同颜色
 if(props.type === 'type1'){
-    ImgType.value = 'pop1.png'
+    ImgType.value = 'pop1'
 }else if(props.type === 'type2'){
-    ImgType.value = 'pop2.png'
+    ImgType.value = 'pop2'
 }else if(props.type === 'type3'){
-    ImgType.value = 'pop3.png'
+    ImgType.value = 'pop3'
 }else{
-    ImgType.value = 'pop4.png'
+    ImgType.value = 'pop4'
 }
 
 function getImageUrl(name : any) {

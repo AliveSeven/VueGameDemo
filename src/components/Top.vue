@@ -29,18 +29,18 @@
                         <Ball size="large" anime="moveC" type="type4" style="top: 30%; left: 15%;"></Ball>
                     </div>
 
-                    <Pop size="mid" type="type3" content="bg2-8-1.png" style="top: -10%; left: 30%;"></Pop>
-                    <Pop size="mid" type="type4" content="box-chose21.png" style="top: 0; left: 50%;"></Pop>
-                    <Pop size="mid" type="type3" content="bg9-5.png" style="top: 0; left: 70%;"></Pop>
-                    <Pop size="mid" type="type2" content="icon-gift.png" style="top: 10%; left: 10%;"></Pop>
-                    <Pop size="large" type="type1" content="bg2-11-2.png" style="top: 20%; left:31%"></Pop>
-                    <Pop size="small" type="type3" content="bg2-9-1.png" style="top: 30%; left: 20%;"></Pop>
-                    <Pop size="small" type="type1" content="bg2-9-5.png" style="top: 40%; left: 5%;"></Pop>
-                    <Pop size="mid" type="type3" content="bg2-8-3.png" style="top: 50%; left: 25%;"></Pop>
-                    <Pop size="mid" type="type2" content="bg10-2.png" style="top: 55%; left: 45%;"></Pop>
-                    <Pop size="small" type="type3" content="bg2-11-1.png" style="top: 50%; left: 65%;"></Pop>
-                    <Pop size="small" type="type3" content="bg7-3.png" style="top: 40%; left: 75%;"></Pop>
-                    <Pop size="mid" type="type4" content="bg12-5.png" style="top: 25%; left: 60%;"></Pop>
+                    <Pop size="mid" type="type3" content="bg2-8-1" style="top: -10%; left: 30%;"></Pop>
+                    <Pop size="mid" type="type4" content="box-chose21" style="top: 0; left: 50%;"></Pop>
+                    <Pop size="mid" type="type3" content="bg9-5" style="top: 0; left: 70%;"></Pop>
+                    <Pop size="mid" type="type2" content="icon-gift" style="top: 10%; left: 10%;"></Pop>
+                    <Pop size="large" type="type1" content="bg2-11-2" style="top: 20%; left:31%"></Pop>
+                    <Pop size="small" type="type3" content="bg2-9-1" style="top: 30%; left: 20%;"></Pop>
+                    <Pop size="small" type="type1" content="bg2-9-5" style="top: 40%; left: 5%;"></Pop>
+                    <Pop size="mid" type="type3" content="bg2-8-3" style="top: 50%; left: 25%;"></Pop>
+                    <Pop size="mid" type="type2" content="bg10-2" style="top: 55%; left: 45%;"></Pop>
+                    <Pop size="small" type="type3" content="bg2-11-1" style="top: 50%; left: 65%;"></Pop>
+                    <Pop size="small" type="type3" content="bg7-3" style="top: 40%; left: 75%;"></Pop>
+                    <Pop size="mid" type="type4" content="bg12-5" style="top: 25%; left: 60%;"></Pop>
 
                     <div class="btn">
                         <div class="des">
