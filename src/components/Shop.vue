@@ -3,9 +3,6 @@
         <div class="bg">
             <!-- <img src="@/assets/icon/p3.png" alt=""> -->
         </div>
-        <!-- <div class="i-bg">
-            <img src="@/assets/icon/p3.png" alt="">
-        </div> -->
         <div class="items">
             <ShopItem></ShopItem>
             <ShopItem></ShopItem>
@@ -41,20 +38,6 @@ import ShopItem from './ShopItem.vue';
     .bg{
         position: relative;
     }
-
-    // .i-bg{
-    //     position: absolute;
-    //     width: 95%;
-    //     transition: .3s;
-    //     top: 0;
-
-    //     @media screen and(max-width: 650px) {
-    //         transform: translate(0,-4%);
-    //     }
-    //     img{
-    //         width: 100%;
-    //     }
-    // }
 
     .items{
         display: flex;

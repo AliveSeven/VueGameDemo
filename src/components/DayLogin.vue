@@ -31,10 +31,11 @@ const rbtn = ref('领取')
 
 function getLoginGift(){
     if(rbtn.value === '领取'){
-        state.changeShowMask('每日登录，恭喜获得','coin')
+        state.changeShowMask('每日登录，恭喜获得','coin','神灯币×1')
+        state.changeCoin(-1)
         rbtn.value = '已领取'
     }else {
-        state.changeShowMask('已经领取过了','coin')
+        state.changeShowMask('已经领取过了','coin','神灯币×1')
     }
 }
 

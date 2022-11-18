@@ -16,20 +16,27 @@ export const useState = defineStore('main',{
         popAct : false,
         // 抽奖金币
         custCoin : 10,
+        // 当前拥有的金币
+        coin : 1000,
         // 抽奖球显示
-        custGift : false
+        custGift : false,
+        // 对话框奖励信息
+        rMsg : '获得奖励'
     }
   },
   
   actions:{
     // 改变遮罩层状态
-    changeShowMask(msg? : string , gift? : string){
+    changeShowMask(msg? : string , gift? : string , reMsg? : string){
         this.showMask = !this.showMask
         if(msg){
             this.changeDialog(msg)
         }
         if(gift){
             this.changeDialogGift(gift)
+        }
+        if(reMsg){
+            this.changeRewardMsg(reMsg)
         }
     },
     // 改变弹出框信息
@@ -44,21 +51,31 @@ export const useState = defineStore('main',{
     changeDialogGift(gift : string){
         this.giftMsg = gift
     },
+    // 改变奖励信息
+    changeRewardMsg(reward : string){
+        this.rMsg = reward
+    },
     // 改变猫头
     changeMao(){
         this.lotAct = !this.lotAct
     },
-    // 改变猫头
+    // 改变气泡激活状态
     changePop(){
         this.popAct = !this.popAct
     },
+    // 增加抽奖需要的硬币数
     addCustCoin(){
         this.custCoin = this.custCoin + 10
     },
     // 改变抽奖礼物状态
     changeCustGift(){
         this.custGift = !this.custGift
+    },
+    // 改变当前金币
+    changeCoin(cost : number){
+        this.coin = this.coin - cost
     }
+
   }
 
 })

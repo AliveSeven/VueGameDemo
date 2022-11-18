@@ -68,30 +68,30 @@ for(var i = 0; i < 2 ; ++i){
 // 点击普通箱子
 function getCommonGift(i : number){
     if(commonBoxMsg.value[i] == '签到领取'){
-        state.changeShowMask('登录成功，恭喜获得', 'icon-gift')
+        state.changeShowMask('登录成功，恭喜获得', 'icon-gift','宝箱×1')
         commonBoxMsg.value[i] = '已领取'
     }else {
-        state.changeShowMask('已经领取过了','icon-gift')
+        state.changeShowMask('已经领取过了','icon-gift','宝箱×1')
     }
 }
 
 // 点击高级箱子
 function getBoxGift(i : number){
     if(boxMsg.value[i] == '签到领取'){
-        state.changeShowMask('登录成功，恭喜获得', 'icon-gift')
+        state.changeShowMask('登录成功，恭喜获得', 'icon-gift','高级宝箱×1')
         boxMsg.value[i] = '已领取'
     }else {
-        state.changeShowMask('已经领取过了','icon-gift')
+        state.changeShowMask('已经领取过了','icon-gift','高级宝箱×1')
     }
 }
 
 // 点击豪华箱子
 function getBestGift(){
     if(bestBoxMsg.value == '签到领取'){
-        state.changeShowMask('登录成功，恭喜获得', 'icon-gift')
+        state.changeShowMask('登录成功，恭喜获得', 'icon-gift','豪华宝箱×1')
         bestBoxMsg.value = '已领取'
     }else {
-        state.changeShowMask('已经领取过了','icon-gift')
+        state.changeShowMask('已经领取过了','icon-gift','豪华宝箱×1')
     } 
 }
 

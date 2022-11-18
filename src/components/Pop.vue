@@ -20,12 +20,14 @@ const props = defineProps<{
     showType? : boolean
 }>()
 
+// 状态管理器
 const state = useState()
 // 气泡大小，分为大、中、小
 const ImgSize = ref()
 // 气泡颜色类型，分为红、蓝、黄、白
 const ImgType = ref()
 
+// 气泡的大小
 if(props.size ==='large'){
     ImgSize.value = 'largeSize'
 }else if(props.size ==='mid'){
@@ -45,6 +47,7 @@ if(props.type === 'type1'){
     ImgType.value = 'pop4'
 }
 
+// 获取照片Url
 function getImageUrl(name : any) {
     return new URL(`../assets/icon/${name}.png`, import.meta.url).href;
 }

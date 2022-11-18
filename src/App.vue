@@ -6,7 +6,7 @@
             <Mid></Mid>
             <Shop></Shop>
             <Bottom></Bottom>
-            <Dialog :msg="state.dialogMsg" :gift="state.giftMsg" v-show="state.showMask"></Dialog>
+            <Dialog :msg="state.dialogMsg" :gift="state.giftMsg" :rewardMsg="state.rMsg" v-show="state.showMask"></Dialog>
         </div>
     </div>
 </template>

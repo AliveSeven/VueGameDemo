@@ -8,7 +8,7 @@
                 <img :src="getImageUrl(gift)" alt="">
             </div>
             <div class="gift-des">
-                获得奖励
+                {{ rewardMsg }}
             </div>
 
             <div class="c-btn">
@@ -25,7 +25,9 @@ const state = useState()
 const props = defineProps<{
     msg? : string
     gift? : string
+    rewardMsg? : string
 }>()
+
 
 function getImageUrl(name : any) {
     return new URL(`../assets/icon/${name}.png`, import.meta.url).href;

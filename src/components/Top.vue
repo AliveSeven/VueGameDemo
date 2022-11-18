@@ -59,11 +59,11 @@
                 <div class="part1">
                         <img src="@/assets/icon/part1.png" alt="">
 
-                        <div class="btn-left">
+                        <div class="btn-left" v-show="!state.lotAct">
                             <img src="@/assets/icon/icon-left.png" alt="">
                         </div>
 
-                        <div class="btn-right">
+                        <div class="btn-right" v-show="!state.lotAct">
                             <img src="@/assets/icon/icon-right.png" alt="">
                         </div>
 
@@ -80,13 +80,14 @@
                             </div>
 
                             <div class="num">
-                                <div class="leave">剩余扭蛋币</div>
-                                <div class="coin">{{coin}}</div>
+                                <div class="leave">剩余神灯币</div>
+                                <div class="coin">{{state.coin}}</div>
                                 <img src="@/assets/icon/numbg.png" alt="" class="numbg">
                             </div>
 
                             <div class="exit">
                                 <img src="@/assets/icon/exit.png" alt="">
+                                <!-- 礼物球，在出口处出现 -->
                                 <Ball v-show="state.custGift" size="small" anime="moveF" type="type1" style="top: 30%; left: 50%; transform: translate(-50%,0);"></Ball>
                             </div>
                         </div>
@@ -109,40 +110,53 @@ import Pop from '@/components/Pop.vue'
 import DayLogin from '@/components/DayLogin.vue'
 import Ball from '@/components/Ball.vue';
 
+// 状态管理器
 const state = useState()
-// 硬币
-const coin = ref(1000)
 // 展示抽奖球球
 const showBall = ref(false)
-// 函数是否在运行
-const timer = ref(false)
 
 // 开始抽奖出发的函数
 function raffle(){
-    timer.value = true
-    console.log(111)
+    console.log('给按钮加入节流功能，5秒内多次点击的话只会触发一次')
+    // 加入promise异步函数
     const promise = new Promise((resolve,reject) =>{
+        // 定时器
         setTimeout(() => {
+            // 改变猫头状态，变为激活
             state.changeMao()
+            // 改变气泡状态，气泡类变为popB，开始进行动画
             state.changePop()
-            coin.value = coin.value - state.custCoin
+            // 改变剩余硬币数
+            state.changeCoin(state.custCoin)
+            // 抽奖所需要的硬币数增加
             state.addCustCoin()
+            // 返回resolve
             resolve('')
         }, 300);
     })
 
-    promise.then((res) =>{
+    // 成功后执行的函数
+    promise.then(() =>{
+        // 定时器，第一秒触发
         setTimeout(() => {
+            // 展示抽奖的滚动球
             showBall.value = !showBall.value
         }, 1000);
+        // 定时器，第三秒触发
         setTimeout(() => {
+            // 改变礼物状态
             state.changeCustGift()
         }, 3000);
+        // 定时器，第四秒触发
         setTimeout(() => {
+            // 改变气泡激活状态，设为不激活
             state.changePop()
+            // 改变猫猫激活状态，设为不激活了
             state.changeMao()
+            // 不展示滚动球了
             showBall.value = !showBall.value
-            state.changeShowMask('恭喜获得','bg2-9-5')
+            // 展示遮罩栏和信息
+            state.changeShowMask('恭喜获得','bg2-9-5','火焰石×1 ')
         }, 4000);
     })
     
@@ -308,6 +322,7 @@ function raffle(){
 
                         img{
                             width: 100%;
+                            animation: resize 1s ease-in 0s infinite alternate;
                         }
                     }
 
@@ -339,6 +354,7 @@ function raffle(){
 
                         img{
                             width: 100%;
+                            animation: resize 1s ease-in 0s infinite alternate;
                         }
                     }
 
@@ -562,6 +578,15 @@ function raffle(){
 
     }
 
+}
+
+@keyframes resize{
+    0%{
+        width: 100%;
+    }
+    100%{
+        width: 90%;
+    }
 }
 
 

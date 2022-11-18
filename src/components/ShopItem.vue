@@ -145,7 +145,7 @@
                 bottom: 0;
                 color: #FFFFFF;
                 font-weight: 500;
-                font-size: 0.5rem;
+                font-size: 1rem;
             }
         }
 
