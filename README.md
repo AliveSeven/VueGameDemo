@@ -3,7 +3,8 @@
 ## 在线预览
 
 * demo已托管到github服务器，如果觉得本地启动麻烦，**可以直接点击链接进行预览**，不过基于github服务器在国外，可能会有点卡，或者是图片加载不出来之类的，这点待优化
-* https://aliveseven.github.io/VueGameDemo/dist/index.html
+* Github仓库地址：https://github.com/AliveSeven/VueGameDemo
+* 预览地址：https://aliveseven.github.io/VueGameDemo/dist/index.html
 
 ## 笔试结果
 
