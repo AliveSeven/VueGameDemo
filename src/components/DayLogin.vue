@@ -10,7 +10,7 @@
             </div>
             <div class="des-two">
                 每日登录可获得 1 个神灯币
-                <div>
+                <div class="coin-img">
                     <img src="@/assets/icon/coin.png" alt="">
                 </div>
             </div>
@@ -104,18 +104,21 @@ function getLoginGift(){
                 font-size: 12px;
             }
 
-            img{
-                margin-top: 5px;
-                width: 31px;
-                height: 31px;
+            .coin-img{
 
-                @media screen and (max-width : 500px){
-                    width: 25px;
-                    height: 25px;
-                }
-                @media screen and (max-width : 450px){
-                    width: 18px;
-                    height: 18px;
+                    img{
+                        margin-top: 5px;
+                        width: 31px;
+                        height: 31px;
+
+                    @media screen and (max-width : 500px){
+                        width: 25px;
+                        height: 25px;
+                    }
+                    @media screen and (max-width : 450px){
+                        width: 18px;
+                        height: 18px;
+                    }
                 }
             }
         }
