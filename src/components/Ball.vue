@@ -1,7 +1,7 @@
 <template>
     <div class="ball" :class="ballSize , { moveC : anime == 'moveC' } , { moveD : anime == 'moveD' } , { moveE : anime == 'moveE' }">
         <div class="ball-1">
-            <img :src="`/src/assets/icon/${ballType}`" alt="">
+            <img :src="getImageUrl(ballType)" alt="">
         </div>
     </div>
 </template>
@@ -38,6 +38,11 @@ if(props.type === 'type1'){
 }else{
     ballType.value = 'ball4.png'
 }
+
+function getImageUrl(name : any) {
+    return new URL(`../assets/icon/${name}.png`, import.meta.url).href;
+}
+
 
 </script>
 

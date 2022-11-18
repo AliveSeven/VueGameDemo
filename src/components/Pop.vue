@@ -1,8 +1,8 @@
 <template>
     <div class="pop" id="pop" :class="ImgSize ,{  popB : state.popAct == true}" >
-        <img :src="`/src/assets/icon/${ImgType}`" alt="">
+        <img :src="getImageUrl(ImgType)" alt="">
         <div class="content">
-            <img :src="`/src/assets/icon/${content}`" alt="">
+            <img :src="getImageUrl(content)" alt="">
         </div>
     </div>
 </template>
@@ -52,6 +52,9 @@ if(props.type === 'type1'){
     ImgType.value = 'pop4.png'
 }
 
+function getImageUrl(name : any) {
+    return new URL(`../assets/icon/${name}.png`, import.meta.url).href;
+}
 
 </script>
 
